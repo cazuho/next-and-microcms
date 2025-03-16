@@ -4,8 +4,8 @@ import { NEWS_LIST_LIMIT } from "../_constants";
 import Pagination from "../_components/Pagination";
 import SearchField from "../_components/SearchField";
 
-// キャッシュを使用せず毎回オリジナルサーバーにアクセス
-export const revalidate = 0;
+// 前回アクセスから1分経過後にアクセスしたらキャッシュを更新する
+export const revalidate = 60;
 
 export default async function Page() {
   const { contents: news, totalCount } = await getNewsList({
