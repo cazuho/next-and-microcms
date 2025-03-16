@@ -5,6 +5,9 @@ import ButtonLink from "./_components/ButtonLink";
 import { getNewsList } from "./_libs/microcms";
 import { TOP_NEWS_LIMIT } from "./_constants";
 
+// 前回アクセスから1分経過後にアクセスしたらキャッシュを更新する
+export const revalidate = 60;
+
 export default async function Home() {
   const data = await getNewsList({
     limit: TOP_NEWS_LIMIT,
